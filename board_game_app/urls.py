@@ -7,5 +7,7 @@ app_name = 'Board_game_app'
 urlpatterns = [
     #Home page
     path('', views.index, name='index'),
-    path('new_boardgame/', views.new_boardgame, name = 'new_boardgame'),
+    path('boardgame/', views.new_boardgame, name = 'new_boardgame'),
+    path('boardgames/', views.boardgames, name= 'boardgames'),
+    path('boardgames/<int:topic_id>/', views.boardgame, name= 'boardgame')
 ]
