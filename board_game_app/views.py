@@ -22,7 +22,7 @@ def boardgame(request, boardgame_id):
 
 def new_boardgame(request):
     if request.method != 'POST':
-        form = BoardgameForm
+        form = BoardgameForm()
     else:
         form = BoardgameForm(data=request.POST)
         if form.is_valid():
