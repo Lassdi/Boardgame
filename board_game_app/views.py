@@ -28,5 +28,5 @@ def new_boardgame(request):
         if form.is_valid():
             form.save()
             return redirect("board_game_app:boardgames")
-        context = {"form":form}
-        return render(request, "board_game_app/new_boardgame.html", context)
+    context = {"form":form}
+    return render(request, "board_game_app/new_boardgame.html", context)
