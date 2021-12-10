@@ -2,18 +2,24 @@
 
 {% block content %}
 
-<p>Board_game: {{ board_game }}</p>
+    <p>Board_game: {{ board_game }}</p>
 
-<p>Reviews:</p>
-<ul>
-    {% for review in reviews %}
-    <li>
-        <p>{{ review.date_added|date:'M d, Y H:i' }}</p>
-        <p>{{ review.text|linebreaks }}</p>
-    </li>
-{% empty %}
-    <li>There are no reviews for this boardgame yet.</li>
-{% endorf %}
-</ul>
+    <p>Reviews:</p>
+    <p>
+        <a href="{% url 'board_game_app:new_review' boardgame.id %}">Add new review</a>
+    </p>
+    <ul>
+        {% for review in reviews %}
+        <li>
+            <p>{{ review.date_added|date:'M d, Y H:i' }}</p>
+            <p>{{ review.text|linebreaks }}</p>
+            <p>
+                <a href="{% url 'board_game_app:edit_review' review.id %}">Edit review</a>
+            </p>
+        </li>
+    {% empty %}
+        <li>There are no reviews for this boardgame yet.</li>
+    {% endfor %}
+    </ul>
 
 {% endblock content %}
