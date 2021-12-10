@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #Board game
     'board_game_app',
+    'users',
 ]
 
 MIDDLEWARE = [
